@@ -1,0 +1,22 @@
+{
+  "name": "contact-app",
+  "description": "",
+  "main": "",
+  "authors": [
+    "sajan <sajanpoddar98@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sajanPoddar/contact-management-app",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "AdminLTE": "admin-lte#^2.3.5"
+  }
+}
