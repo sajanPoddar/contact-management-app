@@ -13,4 +13,15 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('components/AdminLTE/dist/js/demo.js') }}"></script>
 
+
+    <script src="{{ asset('components/AdminLTE/dist/js/jasny-bootstrap.min.js') }}"></script>
+    <script>
+    $("#add-new-group").hide();
+    $('#add-group-btn').click(function () {      
+      $("#add-new-group").slideToggle(function() {
+        $('#new_group').focus();
+      });
+      return false;
+    });
+    </script>
 @yield('scripts')

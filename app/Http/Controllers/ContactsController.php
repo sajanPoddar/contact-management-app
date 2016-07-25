@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\Contact;
 
 class ContactsController extends Controller
 {
@@ -36,7 +37,9 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $input=$request-> except('_token');
+          Contact::create($input);
+            return redirect('admin');
     }
 
     /**

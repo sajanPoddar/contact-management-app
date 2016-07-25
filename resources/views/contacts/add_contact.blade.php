@@ -52,11 +52,18 @@
           </div>
         </div><!-- /.col-md-3 -->
 
+
+
+            <form method="post" action="contacts">
+             <input type='hidden' name='_token' value='{{csrf_token()}}'>
+
         <div class="col-md-9">
           <div class="panel panel-default">
             <div class="panel-heading">
               <strong>Add Contact</strong>
-            </div>           
+            </div>  
+
+
             <div class="panel-body">
               <div class="form-horizontal">
                 <div class="row">
@@ -64,23 +71,23 @@
                     <div class="form-group">
                       <label for="name" class="control-label col-md-3">First Name</label>
                       <div class="col-md-8">
-                        <input type="text" name="name" id="name" class="form-control">
+                        <input type="text" name="first_name" id="name" class="form-control">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="name" class="control-label col-md-3">Middle Name</label>
                       <div class="col-md-8">
-                        <input type="text" name="name" id="name" class="form-control">
+                        <input type="text" name="middle_name" id="name" class="form-control">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="name" class="control-label col-md-3">Last Name</label>
                       <div class="col-md-8">
-                        <input type="text" name="name" id="name" class="form-control">
+                        <input type="text" name="last_name" id="name" class="form-control">
                       </div>
                     </div>
 
-                    <div class="form-group">
+                   <!--  <div class="form-group">
                       <label for="company" class="control-label col-md-3">Location</label>
                       <div class="col-md-8">
                             <select name="group" id="group" class="form-control">
@@ -91,9 +98,9 @@
                           <option value="3">Anywhere</option>
                         </select>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label for="email" class="control-label col-md-3">Email</label>
                       <div class="col-md-8">
                         <input type="text" name="email" id="email" class="form-control">
@@ -105,7 +112,7 @@
                       <div class="col-md-8">
                         <input type="text" name="phone" id="phone" class="form-control">
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                       <label for="name" class="control-label col-md-3">Address</label>
@@ -114,6 +121,12 @@
                       </div>
                     </div>
                     <div class="form-group">
+                      <label for="name" class="control-label col-md-3">Notes</label>
+                      <div class="col-md-8">
+                        <textarea name="notes" id="address" rows="3" class="form-control"></textarea>
+                      </div>
+                    </div>
+                   <!--  <div class="form-group">
                       <label for="group" class="control-label col-md-3">Group</label>
                       <div class="col-md-5">
                         <select name="group" id="group" class="form-control">
@@ -126,7 +139,7 @@
                       <div class="col-md-3">
                         <a href="#" id="add-group-btn" class="btn btn-default btn-block">Add Group</a>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="form-group" id="add-new-group">
                       <div class="col-md-offset-3 col-md-8">
                         <div class="input-group">
@@ -155,6 +168,9 @@
                 </div>
               </div>
             </div>
+
+
+
             <div class="panel-footer">
               <div class="row">
                 <div class="col-md-8">
@@ -169,6 +185,9 @@
             </div>
           </div>
         </div>
+
+               </form>
+
       </div>
     </div>
     <!-- <script src="js/jquery.min.js"></script>

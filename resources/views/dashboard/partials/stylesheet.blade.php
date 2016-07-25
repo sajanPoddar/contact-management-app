@@ -11,4 +11,8 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{ asset('components/AdminLTE/dist/css/skins/_all-skins.min.css') }}">
 
+       <link href="{{ asset('components/AdminLTE/dist/css/jasny-bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/AdminLTE/dist/css/custom.css') }}" rel="stylesheet">
+    
+
   @yield('styles')
