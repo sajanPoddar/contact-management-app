@@ -62,7 +62,8 @@ class ContactsController extends Controller
      */
     public function edit($id)
     {
-        //
+         $contact=Contact::find($id);
+        return view('contacts.edit_contact')->with(compact('contact'));
     }
 
     /**
@@ -74,7 +75,11 @@ class ContactsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contact=Contact::find($id);
+        $input= $request->except(['_token','_method']);
+         // Contact::where('id',$id)->update($input);
+        $contact->update($input);
+      return redirect("admin");
     }
 
     /**
@@ -85,6 +90,8 @@ class ContactsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Contact::destroy($id);
+        
+        return redirect('admin');
     }
 }

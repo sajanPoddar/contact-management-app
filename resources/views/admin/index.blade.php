@@ -72,7 +72,7 @@
 
                       <h4 class="media-heading">Contact <?php echo $i;?></h4>
                       <address>
-                        <strong>{{$contact->first_name}}</strong><br>
+                        <strong>{{$contact->first_name.' '.$contact->middle_name.' '.$contact->last_name}}</strong><br>
                       {{$contact->address}}
                       </address>
                     </div>
@@ -80,12 +80,18 @@
                 </td>
                 <td width="100" class="middle">
                   <div>
-                    <a href="#" class="btn btn-circle btn-default btn-xs" title="Edit">
+                    <a href="contacts/{{$contact->id}}/edit" class="btn btn-circle btn-default btn-xs" title="Edit">
                       <i class="glyphicon glyphicon-edit"></i>
                     </a>
-                    <a href="#" class="btn btn-circle btn-danger btn-xs" title="Edit">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
+                   
+                      
+                        <form  method="post" action="contacts/{{$contact->id}}">
+                        <input type='hidden' name='_token' value='{{csrf_token()}}'>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit"><i class="glyphicon glyphicon-remove"></i></button>
+                        </form>
+                      
+                   
                   </div>
                 </td>
               </tr>
