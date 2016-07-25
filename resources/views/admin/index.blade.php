@@ -53,6 +53,13 @@
         <div class="col-md-9">
           <div class="panel panel-default">
             <table class="table">
+            <?php 
+             $i=0;
+            ?>
+            @foreach($contacts as $contact)
+            <?php
+              $i++;
+            ?>
               <tr>
                 <td class="middle">
                   <div class="media">
@@ -62,10 +69,11 @@
                       </a>
                     </div>
                     <div class="media-body">
-                      <h4 class="media-heading">Contact 1</h4>
+
+                      <h4 class="media-heading">Contact <?php echo $i;?></h4>
                       <address>
-                        <strong>unknown</strong><br>
-                       someone@gmail.com
+                        <strong>{{$contact->first_name}}</strong><br>
+                      {{$contact->address}}
                       </address>
                     </div>
                   </div>
@@ -81,34 +89,8 @@
                   </div>
                 </td>
               </tr>
-              <tr>
-                <td class="middle">
-                  <div class="media">
-                    <div class="media-left">
-                      <a href="#">
-                        <img class="media-object" src="http://placehold.it/100x100" alt="...">
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Contact 2</h4>
-                      <address>
-                        <strong>unknown</strong><br>
-                        someone@gmail.com
-                      </address>
-                    </div>
-                  </div>
-                </td>
-                <td width="100" class="middle">
-                  <div>
-                    <a href="#" class="btn btn-circle btn-default btn-xs" title="Edit">
-                      <i class="glyphicon glyphicon-edit"></i>
-                    </a>
-                    <a href="#" class="btn btn-circle btn-danger btn-xs" title="Edit">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
+              @endforeach
+             
             </table>            
           </div>
 
