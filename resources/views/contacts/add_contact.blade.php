@@ -54,7 +54,7 @@
 
 
 
-            <form method="post" action="contacts">
+            <form method="post" action="contacts" enctype="multipart/form-data">
              <input type='hidden' name='_token' value='{{csrf_token()}}'>
 
         <div class="col-md-9">
@@ -160,7 +160,7 @@
                       </div>
                       <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                       <div class="text-center">
-                        <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                       </div>
                     </div>

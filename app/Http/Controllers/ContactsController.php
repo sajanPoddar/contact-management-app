@@ -39,6 +39,11 @@ class ContactsController extends Controller
     public function store(Request $request)
     {
          $input=$request-> except('_token');
+         if ($request->hasFile('image') ){
+            $filename=$request->file('image')->getClientOriginalName(); 
+            $request->file('image')->move(public_path("uploads"),$filename);
+            $input['image']=$filename;
+             }
           Contact::create($input);
             return redirect('admin');
     }
@@ -78,6 +83,11 @@ class ContactsController extends Controller
         $contact=Contact::find($id);
         $input= $request->except(['_token','_method']);
          // Contact::where('id',$id)->update($input);
+        if ($request->hasFile('image') ){
+    $filename=$request->file('image')->getClientOriginalName(); 
+        $request->file('image')->move(public_path("uploads"),$filename);
+        $input['image']=$filename;
+                }
         $contact->update($input);
       return redirect("admin");
     }

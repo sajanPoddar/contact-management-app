@@ -65,7 +65,13 @@
                   <div class="media">
                     <div class="media-left">
                       <a href="#">
+                      <?php
+                      if(($contact->image)==''){
+                      ?>
                         <img class="media-object" src="http://placehold.it/100x100" alt="...">
+                       <?php } else {?>
+                             <img class="media-object" src="/uploads/{{$contact->image}}"  alt="..." width="100px" height="100px" >
+                        <?php }?>
                       </a>
                     </div>
                     <div class="media-body">

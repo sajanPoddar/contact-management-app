@@ -54,7 +54,7 @@
 
 
 
-            <form method="post" action="contacts/{{$contact->id}}">
+            <form method="post" action="contacts/{{$contact->id}}" enctype="multipart/form-data">
              <input type='hidden' name='_token' value='{{csrf_token()}}'>
              <input type="hidden" name="_method" value="PUT">
 
@@ -120,12 +120,22 @@
                   </div>
                   <div class="col-md-4">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
+                    
                       <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                      <?php if(($contact->image)==''){?>
                         <img src="http://placehold.it/150x150" alt="Photo">
+                        <?php } else {?>
+                          <img src="/uploads/{{$contact->image}}" width="150px" height="150px" alt="Photo">
+                        <?php }?>
                       </div>
-                      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                      
+                      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                        
+                      </div>
+
                       <div class="text-center">
-                        <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                        <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><input type="file" 
+                        name="image"></span>
                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                       </div>
                     </div>
