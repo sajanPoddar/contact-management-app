@@ -21,3 +21,5 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/basic','MainController@index');
+Route::get('/form','MainController@form');
