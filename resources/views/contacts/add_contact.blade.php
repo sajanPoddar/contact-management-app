@@ -24,7 +24,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand text-uppercase" href="#">            
+          <a class="navbar-brand text-uppercase" href="admin">            
             My contact
           </a>
         </div>
@@ -126,32 +126,42 @@
                         <textarea name="notes" id="address" rows="3" class="form-control"></textarea>
                       </div>
                     </div>
-                   <!--  <div class="form-group">
-                      <label for="group" class="control-label col-md-3">Group</label>
-                      <div class="col-md-5">
-                        <select name="group" id="group" class="form-control">
-                          <option value="">Select group</option>
-                          <option value="1">Family</option>
-                          <option value="2">Friend</option>
-                          <option value="3">Other</option>
+                    <div id="p_scents">
+                    <p>
+                    <div class="form-group" id="p_scnt">
+                    
+                      <label for="group" class="control-label col-md-3">Phone/E-mail</label>
+                      <div class="col-md-3">
+                        <select name="contact_type_id[]" id="group" class="form-control">
+                          <option value="">contact type</option>
+                          @foreach($contact_type as $type)
+                          <option value="{{$type->id}}">{{$type->type_name}}</option>
+                          @endforeach
                         </select>
                       </div>
-                      <div class="col-md-3">
-                        <a href="#" id="add-group-btn" class="btn btn-default btn-block">Add Group</a>
-                      </div>
-                    </div> -->
-                    <div class="form-group" id="add-new-group">
-                      <div class="col-md-offset-3 col-md-8">
-                        <div class="input-group">
-                          <input type="text" name="new_group" id="new_group" class="form-control">
-                          <span class="input-group-btn">
-                            <a href="#" class="btn btn-default">
-                              <i class="glyphicon glyphicon-ok"></i>
-                            </a>
-                          </span>
+                      <div class="col-md-5">
+                      <div class="input-group">
+                          <input type="text" name="phoneNo_email[]" id="new_group" class="form-control">
+                          <!-- <a href="#" id="add-group-btn" class="btn btn-default btn-block">Add Group</a>  -->
+                          
                         </div>
+                        
+
+                          <!--  <div id="p_scents">
+                              <p>
+                                <label for="p_scnts">
+                                  
+                                </label>
+                            </p>
+                            </div> -->
                       </div>
+                      
                     </div>
+                    </p> 
+                    </div>
+                    
+                  <h2><a href="#" id="addScnt">Add Another Input Box</a></h2>
+                    
                   </div>
                   <div class="col-md-4">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -204,8 +214,28 @@
     </script>
   </body> -->
 
-    
-    
+    <script src="{{ asset('components/AdminLTE/dist/js/jquery.js') }}"></script> 
+
+    <script>
+    $(function() {
+        var scntDiv = $('#p_scents');
+        var i = $('#p_scents p').size() + 1;
+        
+        $('#addScnt').live('click', function() {
+                $('<p><div class="form-group" id="p_scnt"><label for="group" class="control-label col-md-3">Phone/E-mail</label><div class="col-md-3"><select name="contact_type_id[]" id="group" class="form-control"><option value="">contact type</option>@foreach($contact_type as $type)<option value="{{$type->id}}">{{$type->type_name}}</option>@endforeach</select></div><div class="col-md-5"><div class="input-group"><input type="text" name="phoneNo_email[]" id="new_group" class="form-control"></div></div> <a href="#" id="remScnt">Remove</a></div></p>').appendTo(scntDiv);
+                i++;
+                return false;
+        });
+        
+        $('#remScnt').live('click', function() { 
+                if( i > 2 ) {
+                        $(this).parents('#p_scnt').remove();
+                        i--;
+                }
+                return false;
+        });
+});
+    </script>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

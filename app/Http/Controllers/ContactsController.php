@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Models\Contact;
+use App\Models\Contact_type;
+use App\Models\Contact_detail;
 
 class ContactsController extends Controller
 {
@@ -16,8 +18,8 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        
-           return view ('contacts.add_contact');
+           $contact_type=Contact_type::all();
+           return view ('contacts.add_contact')->with(compact('contact_type'));
     }
 
     /**
@@ -38,13 +40,27 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-         $input=$request-> except('_token');
+        
+         $input=$request-> except('_token','phoneNo_email','contact_type_id');
          if ($request->hasFile('image') ){
             $filename=$request->file('image')->getClientOriginalName(); 
             $request->file('image')->move(public_path("uploads"),$filename);
             $input['image']=$filename;
              }
-          Contact::create($input);
+
+          $contact = Contact::create($input);
+        // dd($contact->id);  
+          foreach ($request->phoneNo_email as $key => $phone_value) 
+          {
+              # code...
+          
+              Contact_detail::create([
+                  'contact_id'=>$contact->id,
+                  'phoneNo_email' => $phone_value,
+                  'contact_type_id'=>$request->contact_type_id[$key]
+                
+               ]);
+          }
             return redirect('admin');
     }
 

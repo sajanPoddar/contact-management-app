@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand text-uppercase" href="#">            
+          <a class="navbar-brand text-uppercase" href="admin">            
             My contact
           </a>
         </div>
@@ -79,7 +79,10 @@
                       <h4 class="media-heading">Contact <?php echo $i;?></h4>
                       <address>
                         <strong>{{$contact->first_name.' '.$contact->middle_name.' '.$contact->last_name}}</strong><br>
-                      {{$contact->address}}
+                      {{$contact->address}}<br>
+
+                      Sajanpoddar98@gmail.com<br>
+                      01723264311
                       </address>
                     </div>
                   </div>
@@ -132,6 +135,8 @@
     </div>
 
     
+
+    <script src="{{ asset('components/AdminLTE/dist/js/jquery.js') }}"></script>
     
     <!-- /.content -->
   </div>

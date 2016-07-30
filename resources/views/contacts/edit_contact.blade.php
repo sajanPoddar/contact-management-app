@@ -24,7 +24,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand text-uppercase" href="#">            
+          <a class="navbar-brand text-uppercase" href="admin">            
             My contact
           </a>
         </div>
@@ -108,7 +108,7 @@
                     <div class="form-group" id="add-new-group">
                       <div class="col-md-offset-3 col-md-8">
                         <div class="input-group">
-                          <input type="text" name="new_group" id="new_group" value="kk" class="form-control">
+                          <input type="text" name="new_group" id="new_group"  class="form-control">
                           <span class="input-group-btn">
                             <a href="#" class="btn btn-default">
                               <i class="glyphicon glyphicon-ok"></i>
