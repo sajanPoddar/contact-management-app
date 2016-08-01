@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Models\Contact;
-use App\Models\Contact_type;
-use App\Models\Contact_detail;
+use App\Models\ContactType;
+use App\Models\ContactDetail;
 
 class ContactsController extends Controller
 {
@@ -18,7 +18,7 @@ class ContactsController extends Controller
      */
     public function index()
     {
-           $contact_type=Contact_type::all();
+           $contact_type=ContactType::all();
            return view ('contacts.add_contact')->with(compact('contact_type'));
     }
 
@@ -54,7 +54,7 @@ class ContactsController extends Controller
           {
               # code...
           
-              Contact_detail::create([
+              ContactDetail::create([
                   'contact_id'=>$contact->id,
                   'phoneNo_email' => $phone_value,
                   'contact_type_id'=>$request->contact_type_id[$key]

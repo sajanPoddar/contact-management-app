@@ -81,8 +81,23 @@
                         <strong>{{$contact->first_name.' '.$contact->middle_name.' '.$contact->last_name}}</strong><br>
                       {{$contact->address}}<br>
 
-                      Sajanpoddar98@gmail.com<br>
-                      01723264311
+                      @foreach($contact->details as $detail)
+
+                       @if($detail->type->type_name=='phone')
+                      {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
+                     <br>
+                      @endif
+
+                      @endforeach
+                      @foreach($contact->details as $detail)
+                        @if($detail->type->type_name=='email')
+                      {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
+                      <br>
+                      @endif
+                      
+                      @endforeach
+
+                      
                       </address>
                     </div>
                   </div>
