@@ -21,3 +21,17 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/index',function(){
+	return view ('index');
+});
+
+Route::get('/form',function(){
+	return view('form');
+});
+
+// Route::get('/group',function(){
+// 	return view('group');
+// });
+
+Route::resource('/group', 'GroupController');
+
