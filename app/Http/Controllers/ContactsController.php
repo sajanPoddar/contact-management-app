@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Models\Contact;
 use App\Models\ContactType;
 use App\Models\ContactDetail;
+use App\Models\Group;
 
 class ContactsController extends Controller
 {
@@ -19,7 +20,8 @@ class ContactsController extends Controller
     public function index()
     {
            $contact_type=ContactType::all();
-           return view ('contacts.add_contact')->with(compact('contact_type'));
+           $groups=Group::all();
+           return view ('contacts.add_contact')->with(compact('contact_type','groups'));
     }
 
     /**

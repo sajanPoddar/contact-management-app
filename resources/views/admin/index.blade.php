@@ -34,6 +34,13 @@
               Add Contact
             </a>
           </div>
+          <div class="nav navbar-right navbar-btn">
+            <a href="groups" class="btn btn-default">
+              <i class="glyphicon glyphicon-plus"></i> 
+              Add Group
+            </a>
+           
+          </div>
         </div>
       </div>
     </nav>

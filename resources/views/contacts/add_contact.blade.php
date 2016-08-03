@@ -36,6 +36,11 @@
               Add Contact
             </a>
           </div>
+          <div class="nav navbar-right navbar-btn">
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="glyphicon glyphicon-plus"></i> Add Group</button>
+  
+          </div>
         </div>
       </div>
     </nav>
@@ -87,7 +92,7 @@
                       </div>
                     </div>
 
-                   <!--  <div class="form-group">
+                     <div class="form-group">
                       <label for="company" class="control-label col-md-3">Location</label>
                       <div class="col-md-8">
                             <select name="group" id="group" class="form-control">
@@ -98,7 +103,7 @@
                           <option value="3">Anywhere</option>
                         </select>
                       </div>
-                    </div> -->
+                    </div> 
 
                     <!-- <div class="form-group">
                       <label for="email" class="control-label col-md-3">Email</label>
@@ -126,6 +131,19 @@
                         <textarea name="notes" id="address" rows="3" class="form-control"></textarea>
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label for="company" class="control-label col-md-3">GROUP</label>
+                      <div class="col-md-8">
+                     
+                    <select class="js-example-basic-multiple form-control" multiple="multiple">
+                     @foreach($groups as $group)
+                  <option value="{{$group->id}}">{{$group->group_name}}</option>
+                  
+                     @endforeach
+                </select>
+                        
+                      </div>
+                    </div> 
                     <div id="p_scents">
                     <p>
                     <div class="form-group" id="p_scnt">
@@ -158,9 +176,13 @@
                       
                     </div>
                     </p> 
+                    <h2 style="float:right; margin-right:50px; margin-top:-10px;"><a href="#" id="addScnt">Add<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                    </a></h2>
+
                     </div>
+                    <div id="p_scents1"></div>
                     
-                  <h2><a href="#" id="addScnt">Add Another Input Box</a></h2>
+                  
                     
                   </div>
                   <div class="col-md-4">
@@ -198,8 +220,48 @@
 
                </form>
 
+
       </div>
     </div>
+    <div class="container">
+                <div class="row">
+                    <div class="col-mid-12 jumbotron">
+                        <div class="text-center">
+                            
+                            <div class="bd-example">
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="exampleModalLabel">New Group</h4>
+        </div>
+        <div class="modal-body">
+         <form method="post" action="groups" enctype="multipart/form-data">
+             <input type='hidden' name='_token' value='{{csrf_token()}}'>
+            <div class="form-group">
+              <label for="recipient-name" class="form-control-label">Group Name</label>
+              <input type="text" name="group_name" class="form-control" id="blog_title">
+            </div>
+            
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save Group</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <!-- <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jasny-bootstrap.min.js"></script>
@@ -214,11 +276,21 @@
     </script>
   </body> -->
 
-    <script src="{{ asset('components/AdminLTE/dist/js/jquery.js') }}"></script> 
+
+  
+<!-- <script src="{{ asset('components/AdminLTE/dist/js/jquery.js') }}"></script>  -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    
+<script type="text/javascript">
+$(".js-example-basic-multiple").select2();
+</script>    
+
 
     <script>
     $(function() {
-        var scntDiv = $('#p_scents');
+        var scntDiv = $('#p_scents1');
         var i = $('#p_scents p').size() + 1;
         
         $('#addScnt').live('click', function() {
