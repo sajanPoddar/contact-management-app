@@ -11,4 +11,7 @@ class ContactGroup extends Model
     public function groupType(){
     	return $this->belongsTo(Group::class, 'group_id');
     }
+    public function contactType(){
+    	return $this->belongsTo(Contact::class, 'contact_id');
+    }
     }

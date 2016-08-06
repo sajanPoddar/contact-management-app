@@ -137,7 +137,7 @@ $filename=$request->file('image')->getClientOriginalName();
 public function destroy($id)
 {
     Contact::destroy($id);
-    
+        
     return redirect('admin');
 }
 }

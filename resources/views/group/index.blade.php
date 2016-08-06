@@ -1,4 +1,4 @@
-   @extends('dashboard.layout.master')
+     @extends('dashboard.layout.master')
 
   @section('content')
 
@@ -12,7 +12,7 @@
               <?php 
                $i=0;
               ?>
-              @foreach($contacts->details as $contact)
+              @foreach($contacts->groups as $contact)
               <?php
                 $i++;
               ?>
@@ -22,11 +22,11 @@
                       <div class="media-left">
                         <a href="#">
                         <?php
-                        if(($contact->image)==''){
+                        if(($contact->contactType->image)==''){
                         ?>
                           <img class="media-object" src="http://placehold.it/100x100" alt="...">
                          <?php } else {?>
-                               <img class="media-object" src="/uploads/{{$contact->image}}"  alt="..." width="100px" height="100px" >
+                               <img class="media-object" src="/uploads/{{$contact->contactType->image}}"  alt="..." width="100px" height="100px" >
                           <?php }?>
                         </a>
                       </div>
@@ -34,28 +34,31 @@
 
                         <h4 class="media-heading">Contact <?php echo $i;?></h4>
                         <address>
-                          <strong>{{$contact->contactType->first_name.' '.$contact->contactType->middle_name.' '.$contact->contactType->last_name}}</strong><br>
-                        {{$contact->contactType->address}}<br>
+                          <strong>{{$contact->contactType->first_name or ''}}&nbsp;
+                          {{$contact->contactType->middle_name or ''}}&nbsp;
+                          {{$contact->contactType->last_name or ''}}</strong><br>
+                        {{$contact->contactType->address or ''}}<br>
+                        @foreach($contact->contactType->details as $detail)
 
-                        <!-- @foreach($contact->details as $detail)
+                           @if($detail->type->type_name=='phone')
+                          {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
+                         <br>
+                          @endif
 
-                         @if($detail->type->type_name=='phone')
-                        {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
-                       <br>
-                        @endif
+                          @endforeach
+                          @foreach($contact->contactType->details as $detail)
+                            @if($detail->type->type_name=='email')
+                          {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
+                          <br>
+                          @endif
+                          
+                          @endforeach
 
-                        @endforeach
-                        @foreach($contact->details as $detail)
-                          @if($detail->type->type_name=='email')
-                        {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
-                        <br>
-                        @endif
+                          Group: @foreach ($contact->contactType->groups as $group) 
+                          {{$group->groupType->group_name or ''}} , 
+                          @endforeach
+
                         
-                        @endforeach
-
-                        Group: @foreach ($contact->groups as $group) 
-                        {{$group->groupType->group_name or ''}} , 
-                        @endforeach -->
                         
                         </address>
                       </div>

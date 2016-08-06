@@ -73,7 +73,7 @@
               <div class="row">
             <div class="col-md-3">
                   <div class="list-group">
-                    <a href="" class="list-group-item active">All Contact <span class="badge">10</span></a>
+                    <a href="admin" class="list-group-item active">All Contact <span class="badge">10</span></a>
                    @foreach($groups as $group)
                     <a href="groups/{{$group->id}}" class="list-group-item">{{$group->group_name}} <span class="badge">4</span></a>
                    @endforeach

@@ -55,10 +55,10 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        $contacts = Contact::with('details')->find($id);
+        $contacts = Group::with('groups')->find($id);
         $groups = Group::all();
-        // dd($contacts);
-         return view ('admin.index')->with(compact('contacts','groups'));
+          // dd($contacts);
+         return view ('group.index')->with(compact('contacts','groups'));
     }
 
     /**
