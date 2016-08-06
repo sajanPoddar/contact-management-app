@@ -11,4 +11,7 @@ class Contact extends Model
      public function details(){
      	return $this->hasMany(ContactDetail::class);
      }
+     public function groups(){
+     	return $this->hasMany(ContactGroup::class);
+     }
 }

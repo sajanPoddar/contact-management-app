@@ -5,13 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Models\Contact;
-use App\Models\ContactType;
-use App\Models\ContactDetail;
-use App\Models\Group;
-use App\Models\ContactGroup;
+use App\Models\Location;
 
-class GroupsController extends Controller
+class LocationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +16,7 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        return view('groups.addgroup');
+        //
     }
 
     /**
@@ -42,9 +38,8 @@ class GroupsController extends Controller
     public function store(Request $request)
     {
         $input=$request->except('_token');
-        Group::create($input);
+        Location::create($input);
         return redirect('contacts');
-
     }
 
     /**
@@ -55,10 +50,7 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
-        $contacts = Contact::with('details')->find($id);
-        $groups = Group::all();
-        // dd($contacts);
-         return view ('admin.index')->with(compact('contacts','groups'));
+        //
     }
 
     /**

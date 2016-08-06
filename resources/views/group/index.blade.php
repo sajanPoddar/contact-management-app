@@ -12,7 +12,7 @@
               <?php 
                $i=0;
               ?>
-              @foreach($contacts as $contact)
+              @foreach($contacts->details as $contact)
               <?php
                 $i++;
               ?>
@@ -34,10 +34,10 @@
 
                         <h4 class="media-heading">Contact <?php echo $i;?></h4>
                         <address>
-                          <strong>{{$contact->first_name.' '.$contact->middle_name.' '.$contact->last_name}}</strong><br>
-                        {{$contact->address}}<br>
+                          <strong>{{$contact->contactType->first_name.' '.$contact->contactType->middle_name.' '.$contact->contactType->last_name}}</strong><br>
+                        {{$contact->contactType->address}}<br>
 
-                        @foreach($contact->details as $detail)
+                        <!-- @foreach($contact->details as $detail)
 
                          @if($detail->type->type_name=='phone')
                         {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
@@ -55,7 +55,7 @@
 
                         Group: @foreach ($contact->groups as $group) 
                         {{$group->groupType->group_name or ''}} , 
-                        @endforeach
+                        @endforeach -->
                         
                         </address>
                       </div>

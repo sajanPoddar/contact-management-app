@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index');
 Route::resource('admin', 'AdminController');
 Route::resource('contacts', 'ContactsController');
 Route::resource('groups', 'GroupsController');
+Route::resource('locations', 'LocationsController');
 

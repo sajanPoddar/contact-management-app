@@ -1,314 +1,220 @@
- @extends('dashboard.layout.master')
+   @extends('dashboard.layout.master')
 
-@section('content')
+  @section('content')
 
- <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+   <!-- Content Wrapper. Contains page content -->
     
+      <!-- Content Header (Page header) -->
+      
 
-    <!-- Main content -->
+      <!-- Main content -->
+      
+
     
+      <!-- navbar part-->
+     
+      <!-- navbar manager-->
+      
 
-  
-    <!-- navbar part-->
-   
-    <!-- navbar manager-->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <a class="navbar-brand text-uppercase" href="admin">            
-            My contact
-          </a>
-        </div>
-        <!-- /.navbar-header portion-->
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <div class="nav navbar-right navbar-btn">
-            <a href="form.html" class="btn btn-default">
-              <i class="glyphicon glyphicon-plus"></i> 
-              Add Contact
-            </a>
-          </div>
-          <div class="nav navbar-right navbar-btn">
-            
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="glyphicon glyphicon-plus"></i> Add Group</button>
-  
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- content portion-->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="list-group">
-            <a href="#" class="list-group-item active">All Contact <span class="badge">10</span></a>
-            <a href="" class="list-group-item">Family <span class="badge">4</span></a>
-            <a href="" class="list-group-item">Friends <span class="badge">3</span></a>
-            <a href="" class="list-group-item">Other <span class="badge">3</span></a>
-          </div>
-        </div><!-- /.col-md-3 -->
+      <!-- content portion-->
+     
 
 
 
-            <form method="post" action="contacts" enctype="multipart/form-data">
-             <input type='hidden' name='_token' value='{{csrf_token()}}'>
+              <form method="post" action="contacts" enctype="multipart/form-data">
+               <input type='hidden' name='_token' value='{{csrf_token()}}'>
 
-        <div class="col-md-9">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <strong>Add Contact</strong>
-            </div>  
+          <div class="col-md-9">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <strong>Add Contact</strong>
+              </div>  
 
 
-            <div class="panel-body">
-              <div class="form-horizontal">
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="form-group">
-                      <label for="name" class="control-label col-md-3">First Name</label>
-                      <div class="col-md-8">
-                        <input type="text" name="first_name" id="name" class="form-control">
+              <div class="panel-body">
+                <div class="form-horizontal">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <label for="name" class="control-label col-md-3">First Name</label>
+                        <div class="col-md-8">
+                          <input type="text" name="first_name" id="name" class="form-control">
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="name" class="control-label col-md-3">Middle Name</label>
-                      <div class="col-md-8">
-                        <input type="text" name="middle_name" id="name" class="form-control">
+                      <div class="form-group">
+                        <label for="name" class="control-label col-md-3">Middle Name</label>
+                        <div class="col-md-8">
+                          <input type="text" name="middle_name" id="name" class="form-control">
+                        </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="name" class="control-label col-md-3">Last Name</label>
-                      <div class="col-md-8">
-                        <input type="text" name="last_name" id="name" class="form-control">
+                      <div class="form-group">
+                        <label for="name" class="control-label col-md-3">Last Name</label>
+                        <div class="col-md-8">
+                          <input type="text" name="last_name" id="name" class="form-control">
+                        </div>
                       </div>
-                    </div>
 
-                     <div class="form-group">
-                      <label for="company" class="control-label col-md-3">Location</label>
-                      <div class="col-md-8">
-                            <select name="group" id="group" class="form-control">
-                          <option value="">Select Location</option>
-                          <option value="1">Dhaka</option>
-                          <option value="2">Comilla</option>
-                          <option value="3">Noakhali</option>
-                          <option value="3">Anywhere</option>
-                        </select>
-                      </div>
-                    </div> 
+                       <div class="form-group">
+                        <label for="company" class="control-label col-md-3">Location</label>
+                        <div class="col-md-8">
+                             <!--  <select onchange="print_state('state',this.selectedIndex);" id="country" class="form-control" name ="country"></select>
+                          
+                          <select name ="state" id ="state" class="form-control"></select> -->
 
-                    <!-- <div class="form-group">
-                      <label for="email" class="control-label col-md-3">Email</label>
-                      <div class="col-md-8">
-                        <input type="text" name="email" id="email" class="form-control">
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="phone" class="control-label col-md-3">Phone</label>
-                      <div class="col-md-8">
-                        <input type="text" name="phone" id="phone" class="form-control">
-                      </div>
-                    </div> -->
-
-                    <div class="form-group">
-                      <label for="name" class="control-label col-md-3">Address</label>
-                      <div class="col-md-8">
-                        <textarea name="address" id="address" rows="3" class="form-control"></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="name" class="control-label col-md-3">Notes</label>
-                      <div class="col-md-8">
-                        <textarea name="notes" id="address" rows="3" class="form-control"></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="company" class="control-label col-md-3">GROUP</label>
-                      <div class="col-md-8">
-                     
-                    <select class="js-example-basic-multiple form-control" multiple="multiple">
-                     @foreach($groups as $group)
-                  <option value="{{$group->id}}">{{$group->group_name}}</option>
-                  
-                     @endforeach
-                </select>
-                        
-                      </div>
-                    </div> 
-                    <div id="p_scents">
-                    <p>
-                    <div class="form-group" id="p_scnt">
+                           <select  name="location_id[]" class="js-example-basic-multiple form-control" multiple="multiple" >
+                       @foreach($locations as $location)
+                    <option  value="{{$location->id}}">{{$location->location_name}}</option>
                     
-                      <label for="group" class="control-label col-md-3">Phone/E-mail</label>
-                      <div class="col-md-3">
-                        <select name="contact_type_id[]" id="group" class="form-control">
-                          <option value="">contact type</option>
-                          @foreach($contact_type as $type)
-                          <option value="{{$type->id}}">{{$type->type_name}}</option>
-                          @endforeach
-                        </select>
+                       @endforeach
+                  </select>
+                        </div>
+                      </div> 
+
+                      <!-- <div class="form-group">
+                        <label for="email" class="control-label col-md-3">Email</label>
+                        <div class="col-md-8">
+                          <input type="text" name="email" id="email" class="form-control">
+                        </div>
                       </div>
-                      <div class="col-md-5">
-                      <div class="input-group">
-                          <input type="text" name="phoneNo_email[]" id="new_group" class="form-control">
-                          <!-- <a href="#" id="add-group-btn" class="btn btn-default btn-block">Add Group</a>  -->
+
+                      <div class="form-group">
+                        <label for="phone" class="control-label col-md-3">Phone</label>
+                        <div class="col-md-8">
+                          <input type="text" name="phone" id="phone" class="form-control">
+                        </div>
+                      </div> -->
+
+                      <div class="form-group">
+                        <label for="name" class="control-label col-md-3">Address</label>
+                        <div class="col-md-8">
+                          <textarea name="address" id="address" rows="3" class="form-control"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="name" class="control-label col-md-3">Notes</label>
+                        <div class="col-md-8">
+                          <textarea name="notes" id="address" rows="3" class="form-control"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="company" class="control-label col-md-3">GROUP</label>
+                        <div class="col-md-8">
+                       
+                      <select  name="group_id[]" class="js-example-basic-multiple form-control" multiple="multiple" >
+                       @foreach($groups as $group)
+                    <option  value="{{$group->id}}">{{$group->group_name}}</option>
+                    
+                       @endforeach
+                  </select>
+                          
+                        </div>
+                      </div> 
+                      <div id="p_scents">
+                      
+                      <div class="form-group" >
+                      
+                        <label for="group" class="control-label col-md-3">Phone/E-mail</label>
+                        <div class="col-md-3">
+                          <select name="contact_type_id[]" id="group" class="form-control">
+                            <option value="">contact type</option>
+                            @foreach($contact_type as $type)
+                            <option value="{{$type->id}}">{{$type->type_name}}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="col-md-5">
+                        <div class="input-group">
+                            <input type="text" name="phoneNo_email[]" id="new_group" class="form-control">
+                            <!-- <a href="#" id="add-group-btn" class="btn btn-default btn-block">Add Group</a>  -->
+                            
+                          </div>
+                          
+
                           
                         </div>
                         
+                      </div>
+                       
+                     
 
-                          <!--  <div id="p_scents">
-                              <p>
-                                <label for="p_scnts">
-                                  
-                                </label>
-                            </p>
-                            </div> -->
+                      </div>
+                      <div id="p_scents1">
+                         <h2 style="float:right; margin-right:50px; margin-top:-10px;"><a href="#" id="addScnt">Add<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                      </a></h2>
                       </div>
                       
-                    </div>
-                    </p> 
-                    <h2 style="float:right; margin-right:50px; margin-top:-10px;"><a href="#" id="addScnt">Add<i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                    </a></h2>
-
-                    </div>
-                    <div id="p_scents1"></div>
                     
-                  
-                    
-                  </div>
-                  <div class="col-md-4">
-                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                      <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
-                        <img src="http://placehold.it/150x150" alt="Photo">
-                      </div>
-                      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-                      <div class="text-center">
-                        <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
-                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                      
+                    </div>
+                    <div class="col-md-4">
+                      <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                          <img src="http://placehold.it/150x150" alt="Photo">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                        <div class="text-center">
+                          <span class="btn btn-default btn-file"><span class="fileinput-new">Choose Photo</span><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
+                          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
 
 
-            <div class="panel-footer">
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="row">
-                    <div class="col-md-offset-3 col-md-6">
-                      <button type="submit" class="btn btn-primary">Save</button>
-                      <a href="#" class="btn btn-default">Cancel</a>
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-md-offset-3 col-md-6">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a href="#" class="btn btn-default">Cancel</a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+                 </form>
+
+
         </div>
-
-               </form>
-
-
       </div>
-    </div>
-    <div class="container">
-                <div class="row">
-                    <div class="col-mid-12 jumbotron">
-                        <div class="text-center">
-                            
-                            <div class="bd-example">
-  
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title" id="exampleModalLabel">New Group</h4>
-        </div>
-        <div class="modal-body">
-         <form method="post" action="groups" enctype="multipart/form-data">
-             <input type='hidden' name='_token' value='{{csrf_token()}}'>
-            <div class="form-group">
-              <label for="recipient-name" class="form-control-label">Group Name</label>
-              <input type="text" name="group_name" class="form-control" id="blog_title">
-            </div>
-            
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save Group</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    <!-- <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jasny-bootstrap.min.js"></script>
-    <script>
-    $("#add-new-group").hide();
-    $('#add-group-btn').click(function () {      
-      $("#add-new-group").slideToggle(function() {
-        $('#new_group').focus();
-      });
-      return false;
-    });
-    </script>
-  </body> -->
+      
+     
 
 
-  
-<!-- <script src="{{ asset('components/AdminLTE/dist/js/jquery.js') }}"></script>  -->
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     
-<script type="text/javascript">
-$(".js-example-basic-multiple").select2();
-</script>    
 
-
-    <script>
-    $(function() {
-        var scntDiv = $('#p_scents1');
-        var i = $('#p_scents p').size() + 1;
-        
-        $('#addScnt').live('click', function() {
-                $('<p><div class="form-group" id="p_scnt"><label for="group" class="control-label col-md-3">Phone/E-mail</label><div class="col-md-3"><select name="contact_type_id[]" id="group" class="form-control"><option value="">contact type</option>@foreach($contact_type as $type)<option value="{{$type->id}}">{{$type->type_name}}</option>@endforeach</select></div><div class="col-md-5"><div class="input-group"><input type="text" name="phoneNo_email[]" id="new_group" class="form-control"></div></div> <a href="#" id="remScnt">Remove</a></div></p>').appendTo(scntDiv);
-                i++;
-                return false;
-        });
-        
-        $('#remScnt').live('click', function() { 
-                if( i > 2 ) {
-                        $(this).parents('#p_scnt').remove();
+  <!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> --> 
+  <script>
+      $(document).ready(function() {
+          var scntDiv = $('#p_scents1');
+          var i = 1;
+          
+          $('#addScnt').on('click', function(e) {
+                  e.preventDefault();
+                  i++;
+                  $(scntDiv).append('<div class="form-group"><label for="group" class="control-label col-md-3">Phone/E-mail</label><div class="col-md-3"><select name="contact_type_id[]" id="group" class="form-control"><option value="">contact type</option>@foreach($contact_type as $type)<option value="{{$type->id}}">{{$type->type_name}}</option>@endforeach</select></div><div class="col-md-5"><div class="input-group"><input type="text" name="phoneNo_email[]" id="new_group" class="form-control"></div></div><a href="#" id="remScnt">Remove</a></div>');
+                  
+                  
+          });
+          
+          $(scntDiv).on('click','#remScnt', function(e){ 
+            e.preventDefault();
+            $(this).parent('.form-group').remove();
                         i--;
-                }
-                return false;
-        });
-});
-    </script>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  @stop
+                  
+                                          })
+  });
+      </script>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    @stop
+   
+
