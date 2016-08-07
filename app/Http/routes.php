@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-Route::resource('admin', 'AdminController');
+Route::get('/admin', 'AdminController@index');
 Route::resource('contacts', 'ContactsController');
 Route::resource('groups', 'GroupsController');
 Route::resource('locations', 'LocationsController');

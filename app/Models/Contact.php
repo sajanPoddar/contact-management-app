@@ -14,4 +14,7 @@ class Contact extends Model
      public function groups(){
      	return $this->hasMany(ContactGroup::class);
      }
+     public function locations(){
+     	return $this->hasMany(ContactLocation::class);
+     }
 }
