@@ -34,24 +34,24 @@
 
   <h4 class="media-heading">Contact <?php echo $i;?></h4>
   <address>
-  <strong>{{$contact->first_name.' '.$contact->middle_name.' '.$contact->last_name}}</strong><br>
-  {{$contact->address}}<br>
-
+  <strong>{{$contact->first_name.' '.$contact->middle_name.' '.$contact->last_name }}</strong><br>
+  {{$contact->address or ''}}<br>
   @foreach($contact->details as $detail)
-
-  @if($detail->type->type_name=='phone')
-  {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
+ 
+  @if($detail->type && $detail->type->type_name =='phone' )
+  {{$detail->type->type_name }} : {{$detail->phoneNo_email or ''}}
   <br>
   @endif
 
   @endforeach
   @foreach($contact->details as $detail)
-  @if($detail->type->type_name=='email')
-  {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email}}
+  @if($detail->type && $detail->type->type_name =='email')
+  {{$detail->type->type_name or ''}} : {{$detail->phoneNo_email or ''}}
   <br>
   @endif
 
   @endforeach
+ 
 
   Group: @foreach ($contact->groups as $group) 
   {{$group->groupType->group_name or ''}} , 

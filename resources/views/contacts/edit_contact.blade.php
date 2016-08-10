@@ -14,7 +14,7 @@
           <div class="col-md-9">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <strong>Add Contact</strong>
+                <strong>Edit Contact</strong>
               </div>  
 
 
@@ -57,19 +57,22 @@
                           <textarea name="notes" id="address" rows="3" class="form-control">{{$contact->notes}}</textarea>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label for="company" class="control-label col-md-3">GROUP</label>
+                        <div class="col-md-8">
                      
-                      <div class="form-group" id="add-new-group">
-                        <div class="col-md-offset-3 col-md-8">
-                          <div class="input-group">
-                            <input type="text" name="new_group" id="new_group"  class="form-control">
-                            <span class="input-group-btn">
-                              <a href="#" class="btn btn-default">
-                                <i class="glyphicon glyphicon-ok"></i>
-                              </a>
-                            </span>
-                          </div>
+                      <select  name="group_id[]" class="js-example-basic-multiple form-control" multiple="multiple" >
+                        
+                       @foreach($groups as $group)
+                    <option  value="{{$group->id}}">{{$group->group_name}}</option>
+                    
+                       @endforeach
+                  </select>
+                          
                         </div>
-                      </div>
+                      </div> 
+                     
+                      
                     </div>
                     <div class="col-md-4">
                       <div class="fileinput fileinput-new" data-provides="fileinput">

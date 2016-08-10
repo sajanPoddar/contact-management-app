@@ -11,5 +11,5 @@ class ContactDetail extends Model
     public function type(){
     	return $this->belongsTo(ContactType::class, 'contact_type_id');
     }
-
+    
 }

@@ -8,4 +8,6 @@ class ContactType extends Model
 {
     protected $fillable=['type_name'];
     protected $table='contact_type';
+ 
+  
 }

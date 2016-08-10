@@ -55,7 +55,8 @@ public function store(Request $request)
          }
 
       $contact = Contact::create($input);
-    // dd($contact->id);  
+    // dd($contact->id); 
+    if($request->phoneNo_email){ 
       foreach ($request->phoneNo_email as $key => $phone_value) 
       {
           # code...
@@ -67,18 +68,23 @@ public function store(Request $request)
             
            ]);
       }
+    }
+    if($request->group_id){
       foreach ($request->group_id as $key => $value) {
           ContactGroup::create([
              'contact_id'=>$contact->id,
              'group_id'=>$value  
             ]);
       }
+    }
+    if($request->location_id){
       foreach ($request->location_id as $key => $value) {
         ContactLocation::create([
           'contact_id'=>$contact->id,
           'location_id'=>$value
           ]);
       }
+    }
 
         return redirect('admin');
 }
@@ -103,7 +109,7 @@ public function show($id)
 public function edit($id)
 {
     $groups = Group::all();
-     $contact=Contact::find($id);
+     $contact=Contact::with('groups')->find($id);
     return view('contacts.edit_contact')->with(compact('contact','groups'));
 }
 
