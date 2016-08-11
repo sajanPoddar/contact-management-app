@@ -18,8 +18,9 @@ class AdminController extends Controller
         $search=$request->get('search');
         $group_id=$request->get('group_id');
         $group_search=$request->get('group_search');
+        $location_search=$request->get('location_search');
     	if($search){
-    	$contacts=Contact::with('details')->where('first_name','like','%'.$search.'%')->paginate(1);
+    	$contacts=Contact::with('details')->where('first_name','like','%'.$search.'%')->paginate(3);
         // dd($contacts);
     	}
         elseif($group_search){
@@ -28,11 +29,19 @@ class AdminController extends Controller
             $contacts=Contact::with(['contactgroups'=>function($query) use($group_search){
                 $query->where('group_name',$group_search);
             }])->whereHas('contactgroups', function ($query) use($group_search) {
-            $query->where('group_name',$group_search); })->paginate(1);
+            $query->where('group_name',$group_search); })->paginate(3);
 
 
              // dd($contacts);
             }
+        elseif ($location_search) {
+            $contacts=Contact::with(['contactlocations'=>function($query) use ($location_search){
+                $query->where('location_name','like','%'.$location_search.'%');
+            }])->whereHas('contactlocations', function ($query) use ($location_search){
+                $query->where('location_name','like','%'.$location_search.'%');
+            })->paginate(2);
+
+        }
             
             
            
@@ -43,7 +52,7 @@ class AdminController extends Controller
         }
 
     	else{
-    		$contacts = Contact::with('details')->paginate(1);
+    		$contacts = Contact::with('details')->paginate(3);
     	}
         return view ('admin.index')->with(compact('contacts','groups'));
     	

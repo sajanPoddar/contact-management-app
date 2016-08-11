@@ -20,4 +20,7 @@ class Contact extends Model
      public function contactgroups() {
           return $this->belongsToMany('App\Models\Group');
      }
+     public function contactlocations(){
+          return $this->belongsToMany('App\Models\Location');
+     }
 }
