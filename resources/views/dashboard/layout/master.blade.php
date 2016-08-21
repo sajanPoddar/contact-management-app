@@ -55,16 +55,28 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@mdo"><i class="glyphicon glyphicon-search"></i> search</button>
     
             
-          <form action="admin" method="get">    
-          
-<div class="input-group">
-<input type="text" name="search" id="search" class="form-control" placeholder="search" aria-describedby="basic-addon1">
-<span class="input-group-btn">
-<button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-</span>
-</div>
+            <form action="admin" method="get">    
+                      
+            <div class="input-group " style='width:50%; margin-top:2px; float: left; '>
+            <input type="text" name="advancedsearch" id="search" class="form-control" placeholder="Advanced search" aria-describedby="basic-addon1">
+            <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </span>
+            </div>
 
-</form>
+            </form>
+
+            <form action="admin" method="get">    
+                      
+            <div class="input-group " style='width:50%; margin-top:2px; float: left; '>
+            <input type="text" name="search" id="search" class="form-control" placeholder=" search" aria-describedby="basic-addon1">
+            <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </span>
+            </div>
+
+            </form>
+
 </div>
 </div>
     

@@ -1,6 +1,7 @@
   @extends('dashboard.layout.master')
 
   @section('content')
+ 
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -11,6 +12,7 @@
   <table class="table">
   <?php 
   $i=0;
+
   ?>
   @foreach($contacts as $contact)
   <?php
