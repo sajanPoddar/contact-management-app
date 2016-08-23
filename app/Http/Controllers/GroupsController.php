@@ -9,6 +9,7 @@ use App\Models\Contact;
 use App\Models\ContactType;
 use App\Models\ContactDetail;
 use App\Models\Group;
+use App\Models\Location;
 use App\Models\ContactGroup;
 
 class GroupsController extends Controller
@@ -63,8 +64,9 @@ class GroupsController extends Controller
         // $contacts = Group::with('groups')->find($id);
         // $contacts=$contacts->paginate(1);
         $groups = Group::all();
+        $locations = Location::all();
            // dd($contacts);
-         return view ('admin.index')->with(compact('contacts','groups'));
+         return view ('admin.index')->with(compact('contacts','groups','locations'));
     }
 
     /**
