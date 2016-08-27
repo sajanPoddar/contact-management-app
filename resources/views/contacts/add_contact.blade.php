@@ -139,7 +139,7 @@
 
                       </div>
                       <div id="p_scents1">
-                         <h2 style="float:right; margin-right:50px; margin-top:-10px;"><a href="#" id="addScnt">Add<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                         <h2 style="float:right; margin-right:-50px; margin-top:-10px;"><a href="#" id="addScnt">Add<i class="fa fa-plus-square-o" aria-hidden="true"></i>
                       </a></h2>
                       </div>
                       
@@ -199,7 +199,7 @@
           $('#addScnt').on('click', function(e) {
                   e.preventDefault();
                   i++;
-                  $(scntDiv).append('<div class="form-group"><label for="group" class="control-label col-md-3">Phone/E-mail</label><div class="col-md-3"><select name="contact_type_id[]" id="group" class="form-control"><option value="">contact type</option>@foreach($contact_type as $type)<option value="{{$type->id}}">{{$type->type_name}}</option>@endforeach</select></div><div class="col-md-5"><div class="input-group"><input type="text" name="phoneNo_email[]" id="new_group" class="form-control"></div></div><a href="#" id="remScnt">Remove</a></div>');
+                  $(scntDiv).append('<div class="form-group"><label for="group" class="control-label col-md-3">Phone/E-mail</label><div class="col-md-3"><select name="contact_type_id[]" id="group" class="form-control"><option value="">contact type</option>@foreach($contact_type as $type)<option value="{{$type->id}}">{{$type->type_name}}</option>@endforeach</select></div><div class="col-md-5"><div class="input-group"><input type="text" name="phoneNo_email[]" id="new_group" class="form-control"></div></div><a href="#" style="float:right;" id="remScnt">Remove</a></div>');
                   
                   
           });

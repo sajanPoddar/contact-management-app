@@ -62,15 +62,43 @@
                         <div class="col-md-8">
                      
                       <select  name="group_id[]" class="js-example-basic-multiple form-control" multiple="multiple" >
-                        
+                      
                        @foreach($groups as $group)
-                    <option  value="{{$group->id}}">{{$group->group_name}}</option>
-                    
-                       @endforeach
+                       
+                    <option  
+                    @foreach ($contact->groups as $g)
+                    <?php if ($g->groupType->id == $group->id): ?>
+                      selected='selected'
+                    <?php endif ?>
+                    @endforeach
+                    value="{{$group->id}}">{{$group->group_name}}</option>
+                  
+                     @endforeach
                   </select>
                           
                         </div>
                       </div> 
+                      <div class="form-group">
+                        <label for="company" class="control-label col-md-3">Location</label>
+                        <div class="col-md-8">
+                     
+                     <select name='location_id[]' class="js-example-basic-multiple form-control" multiple="multiple">
+                     s
+                     @foreach($locations as $location)
+                      
+                    <option 
+                    @foreach ($contact->locations as $l) 
+                    <?php if ($l->locationType->id == $location->id): ?>
+                      selected='selected'
+                    <?php endif ?>
+                    @endforeach 
+                     value="{{$location->id}}">{{$location->location_name}}</option>
+                       
+                    @endforeach
+                    </select>
+                          
+                        </div>
+                      </div>
                      
                       
                     </div>

@@ -107,10 +107,12 @@ public function show($id)
  * @return \Illuminate\Http\Response
  */
 public function edit($id)
-{
+{   
+    $locations=Location::all();
     $groups = Group::all();
-     $contact=Contact::with('groups')->find($id);
-    return view('contacts.edit_contact')->with(compact('contact','groups'));
+     $contact=Contact::with('contactgroups' , 'contactlocations')->find($id);
+
+    return view('contacts.edit_contact')->with(compact('contact','groups','locations'));
 }
 
 /**
@@ -122,16 +124,17 @@ public function edit($id)
  */
 public function update(Request $request, $id)
 {
-    $contact=Contact::find($id);
+    $contact=Contact::with('contactgroups' , 'contactlocations')->find($id);
     $input= $request->except(['_token','_method']);
      // Contact::where('id',$id)->update($input);
     if ($request->hasFile('image') ){
-$filename=$request->file('image')->getClientOriginalName(); 
+    $filename=$request->file('image')->getClientOriginalName(); 
     $request->file('image')->move(public_path("uploads"),$filename);
     $input['image']=$filename;
             }
+
     $contact->update($input);
-  return redirect("admin");
+    return redirect("admin");
 }
 
 /**

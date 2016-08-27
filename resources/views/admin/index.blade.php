@@ -6,7 +6,9 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
   <!-- /.col-md-3 -->
-
+  @if(count($contacts)==0)
+    <h1 style="padding:100px; margin-left:100px; background-color: grey; border:2px solid grey; font-size:40px; color:#880000;" align="center">No Result Is Found....</h1>
+ @endif
   <div class="col-md-9">
   <div class="panel panel-default">
   <table class="table">
