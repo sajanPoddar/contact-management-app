@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Group;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -14,7 +14,7 @@ Route::get('/admin',function(){
 	return view ('admin.index');
 });
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::auth();
@@ -34,4 +34,9 @@ Route::get('/form',function(){
 // });
 
 Route::resource('/group', 'GroupController');
+
+Route::delete('/group/{group}', function (Group $group) {
+	$group->delete();
+	return redirect('/group');
+});
 

@@ -24,6 +24,7 @@
             margin-right: 6px;
         }
     </style>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">

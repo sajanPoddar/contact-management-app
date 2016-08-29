@@ -7,6 +7,7 @@
     <title>My Contact</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jasny-bootstrap.min.css')}}">
   </head>
   <body>
     <!-- navbar part-->
